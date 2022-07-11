@@ -1,4 +1,6 @@
-<nav class="main-nav">
+<nav class="main-nav" xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:th="http://www.thymeleaf.org"
+     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <ul>
         <li>
             <a href="/static">Add new route</a>
@@ -6,11 +8,11 @@
         <li>
             <a href="/static">Profile</a>
         </li>
-        <li>
+        <li sec:authorize="hasRole('ROLE_ADMIN')">
             <a href="/static">Admin</a>
         </li>
-        <li>
-            <a href="/static">Logout</a>
+        <li >
+            <a href="/users/logout">Logout</a>
         </li>
     </ul>
 </nav>

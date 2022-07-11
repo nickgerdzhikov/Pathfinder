@@ -44,6 +44,12 @@ public class PathfinderSecurityConfiguration {
                 .failureForwardUrl("/users" +
                         "/login?error=true")
                 .and()
+                .logout()
+                .logoutUrl("/users/logout")
+                .clearAuthentication(true)
+                .deleteCookies("JSESSIONID")
+                .logoutSuccessUrl("/")
+                .and()
                 .csrf().disable();
 
         //build the configuration and adds it
